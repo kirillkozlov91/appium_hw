@@ -1,0 +1,4 @@
+count_featured_movies: --format html --out report.html --format pretty --tags @count_featured_movies
+info_first_five_movies: --format html --out report.html --format pretty --tags @info_first_five_movies
+highest_rating_first_five_movies: --format html --out report.html --format pretty --tags @highest_rating_first_five_movies
+all_tests: --format html --out report.html --format pretty --tags @count_featured_movies,@info_first_five_movies,@highest_rating_first_five_movies
