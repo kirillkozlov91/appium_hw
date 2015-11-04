@@ -2,6 +2,9 @@
 If you don’t have Xcode, install from here: https://developer.apple.com/xcode/download/  
 xcode-select --install  
   
+### Download iOS 8.4 Simulator  
+Xcode > Preferences > Downloads > Components > iOS 8.4 Simulator  
+  
 ### Install RVM and latest stable Ruby version (e.g. 2.2.1)  
 \curl -sSL https://get.rvm.io | bash -s stable --ruby  
 rvm install 2.2.1  
