@@ -1,29 +1,51 @@
-# appium_hw
-
-### Prerequisites:
-Appium - http://appium.io  
-Xcode 7.0 with command line tools  
-iOS 8.4 device emulator (iPhone 6)  
-Node.js (brew install node)  
-One of the latest and stable ruby versions (rvm install 2.2.1)  
-Cucumber gem (gem install cucumber)  
+### Install Xcode with command line tools  
+If you don’t have Xcode, install from here: https://developer.apple.com/xcode/download/  
+xcode-select --install  
   
-### Clone this repo to your machine (e.g. to Desktop):  
+### Install RVM and latest stable Ruby version (e.g. 2.2.1)  
+\curl -sSL https://get.rvm.io | bash -s stable --ruby  
+rvm install 2.2.1  
+rvm --default use 2.2.1  
+ruby -v  
+  
+### Install Homebrew  
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
+brew -v  
+  
+### Install Node.js  
+brew update  
+brew install node  
+node -v  
+  
+### Clone repos with Appium and tests to your machine (e.g. clone to Desktop)  
 cd ~/Desktop  
+git clone https://github.com/appium/appium.git  
 git clone https://github.com/kirillkozlov91/appium_hw.git  
   
-### Launch Appium server from the folder or remote machine where you have your Appium installed  
+### Setup Appium to work from command line, ignore warning message at the end for Android  
+cd ~/Desktop/appium  
+rm -rf node_modules  
+npm install -g appium  
+sh reset.sh  
+appium -v  
+  
+### After setup for Appium finished, launch Appium server, Accept incoming connections  
+cd ~/Desktop/appium  
 node bin/appium.js --session-override --device-name "iPhone 6" --platform-version "8.4" --platform-name "iOS" --app "~/Desktop/appium_hw/Movies.app"  
   
-### Cd to root directory of tests and install other required gems by using bundler  
+### In separate Terminal tab, cd to root directory of tests and install other required gems by using bundler  
+  
 cd ~/Desktop/appium_hw  
+gem install cucumber  
 gem install bundler  
 bundle install  
   
-## Launch tests by using "all_tests" profile  
+### Launch tests by using "all_tests" profile  
+  
 cucumber -p all_tests  
   
 ### Complete list of profiles:  
+  
 count_featured_movies  
 info_first_five_movies  
 highest_rating_first_five_movies  
